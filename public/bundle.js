@@ -24628,6 +24628,7 @@
 
 		componentWillUpdate: function componentWillUpdate() {
 
+			console.log("just before helpers.query=", this.state.queryTerm);
 			helpers.runQuery(this.state.queryTerm, this.state.startYear, this.state.endYear).then(function (data) {
 				this.setState({
 					results: data
@@ -24647,8 +24648,8 @@
 			// console.log("in setstate ");
 			this.setState({
 				queryTerm: newQuery,
-				startYear: newStart,
-				endYear: newEnd
+				startYear: newStart + "0101",
+				endYear: newEnd + "1231"
 			});
 		},
 
@@ -24701,6 +24702,9 @@
 
 		/*This code handles the sending of the search terms to the parent Search component*/
 		handleSubmit: function handleSubmit() {
+			console.log("in Query, search term=", this.state.search);
+			console.log("in Query, search start=", this.state.start);
+			console.log("in Query, search end=", this.state.end);
 			this.props.updateSearch(this.state.search, this.state.start, this.state.end);
 			return false;
 		},
@@ -24803,7 +24807,7 @@
 /* 212 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	/*Include the Axios library for HTTP requests*/
 	var axios = __webpack_require__(213);
@@ -24819,8 +24823,8 @@
 
 			// Adjust to get search terms in proper format
 			var term = term.trim();
-			var start = start.trim() + "0101";
-			var end = end.trim() + "1231";
+			var start = start.trim();
+			var end = end.trim();
 
 			// Run a query using Axios. Then return the results as an object with an array.
 			// See the Axios documentation for details on how we structured this with the params.

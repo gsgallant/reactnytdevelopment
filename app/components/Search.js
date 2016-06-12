@@ -32,7 +32,7 @@ var Search = React.createClass({
 
 	componentWillUpdate: function(){
 		
-
+		console.log("just before helpers.query=",this.state.queryTerm);
 		helpers.runQuery(this.state.queryTerm, this.state.startYear, this.state.endYear)
 			.then(function(data){
 				this.setState({
@@ -53,8 +53,8 @@ var Search = React.createClass({
 		// console.log("in setstate ");
 		this.setState({
 			queryTerm: newQuery,
-			startYear: newStart,
-			endYear: newEnd
+			startYear: newStart+"0101",
+			endYear: newEnd+"1231"
 		})
 	},
 
@@ -65,7 +65,6 @@ var Search = React.createClass({
 		return(
 
 			<div className="main-container"> 
-
 				{/*Note how we pass the setQuery function to enable Query to perform searches*/}
 				<Query updateSearch={this.setQuery} />
 

@@ -12,8 +12,8 @@ var helpers = {
 
 		// Adjust to get search terms in proper format
 		var term = term.trim();
-		var start = start.trim() + "0101";
-		var end = end.trim() + "1231";
+		var start = start.trim();
+		var end = end.trim();
 
 
 		// Run a query using Axios. Then return the results as an object with an array.
