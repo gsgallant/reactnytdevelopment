@@ -16,30 +16,22 @@ var Search = React.createClass({
 	/*Also note the "resuls" state. This will be where we hold the data from our results*/
 	getInitialState: function(){
 		return { 
-			queryTerm: "Coding",
-			startYear: "2010",
-			endYear: "2016",
-			results: ""
+			queryTerm: "",
+			startYear: "",
+			endYear: "",
+			results: {}
 		}
 	},
 
 	/*This function gets called if the user searches for a completely new set of parameters (i.e. if any of the search terms changes)*/
 	/*If the user searches for the exact same thing, then React will ignore it.*/
 	shouldComponentUpdate: function(nextProps, nextState) {
-			// console.log("shouldComponentUpdate ");
-			// console.log("current state");
-			// console.log(this.state);
-			// console.log("nextState");
-			// console.log(nextState);
-			// console.log(this.state.results == nextState.results);
+			
 		  return this.state.queryTerm != nextState.queryTerm;
 	},
 
 	componentWillUpdate: function(){
-		// console.log("COMPONENT UPDATED");
-		// console.log(this.state.queryTerm);
-		// console.log(this.state.startYear);
-		// console.log(this.state.endYear);
+		
 
 		helpers.runQuery(this.state.queryTerm, this.state.startYear, this.state.endYear)
 			.then(function(data){
