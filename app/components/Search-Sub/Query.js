@@ -14,7 +14,6 @@ var Query = React.createClass({
 	},
 
     handleChange: function(event) {
-    	console.log("TEXT CHANGED");
 
     	// Here we create syntax to capture any change in text to the query terms (pre-search).
     	// See this Stack Overflow answer for more details: 
@@ -26,7 +25,6 @@ var Query = React.createClass({
 
 	/*This code handles the sending of the search terms to the parent Search component*/
 	handleSubmit: function(){
-		// console.log("CLICKED");
 		this.props.updateSearch(this.state.search, this.state.start, this.state.end);
 		return false;
 	},

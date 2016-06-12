@@ -19,27 +19,27 @@ var Search = React.createClass({
 			queryTerm: "Coding",
 			startYear: "2010",
 			endYear: "2016",
-			results: {}
+			results: ""
 		}
 	},
 
 	/*This function gets called if the user searches for a completely new set of parameters (i.e. if any of the search terms changes)*/
 	/*If the user searches for the exact same thing, then React will ignore it.*/
 	shouldComponentUpdate: function(nextProps, nextState) {
-			console.log("shouldComponentUpdate ");
-			console.log("current state");
-			console.log(this.state);
-			console.log("nextState");
-			console.log(nextState);
-			console.log(this.state.results == nextState.results);
+			// console.log("shouldComponentUpdate ");
+			// console.log("current state");
+			// console.log(this.state);
+			// console.log("nextState");
+			// console.log(nextState);
+			// console.log(this.state.results == nextState.results);
 		  return this.state.queryTerm != nextState.queryTerm;
 	},
 
 	componentWillUpdate: function(){
-		console.log("COMPONENT UPDATED");
-		console.log(this.state.queryTerm);
-		console.log(this.state.startYear);
-		console.log(this.state.endYear);
+		// console.log("COMPONENT UPDATED");
+		// console.log(this.state.queryTerm);
+		// console.log(this.state.startYear);
+		// console.log(this.state.endYear);
 
 		helpers.runQuery(this.state.queryTerm, this.state.startYear, this.state.endYear)
 			.then(function(data){
@@ -47,7 +47,7 @@ var Search = React.createClass({
 					results: data
 				})
 
-				console.log(data);
+				console.log("back from query",data);
 
 			// This code is necessary to bind the keyword "this" when we say this.setState 
 			// to actually mean the component itself and not the runQuery function.
@@ -58,7 +58,7 @@ var Search = React.createClass({
 	// i.e we will pass this method to the query component that way it can change the main component 
 	// to perform a new search
 	setQuery: function(newQuery, newStart, newEnd){
-		console.log("in setstate ");
+		// console.log("in setstate ");
 		this.setState({
 			queryTerm: newQuery,
 			startYear: newStart,
@@ -68,7 +68,7 @@ var Search = React.createClass({
 
 	/*Render the function. Note how we deploy both the Query and the Results*/
 	render: function(){
-		console.log("results", this.state.results)
+		// console.log("results", this.state.results)
 
 		return(
 
