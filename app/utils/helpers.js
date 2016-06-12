@@ -27,7 +27,7 @@ var helpers = {
 			}
 		})
 		.then(function(results){
-			console.log("inside helpers",results.data.response);
+			// console.log("inside helpers",results.data.response);
 
 			return results.data.response;
 

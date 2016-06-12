@@ -24626,15 +24626,17 @@
 			return this.state.queryTerm != nextState.queryTerm;
 		},
 
-		componentWillUpdate: function componentWillUpdate() {
+		componentDidUpdate: function componentDidUpdate() {
 
-			console.log("just before helpers.query=", this.state.queryTerm);
+			// console.log("just before helpers.query term=",this.state.queryTerm);
+			// console.log("just before helpers.query start=",this.state.startYear);
+			// console.log("just before helpers.query end=",this.state.endYear);
 			helpers.runQuery(this.state.queryTerm, this.state.startYear, this.state.endYear).then(function (data) {
 				this.setState({
 					results: data
 				});
 
-				console.log("back from query", data);
+				// console.log("back from query",data);
 
 				// This code is necessary to bind the keyword "this" when we say this.setState
 				// to actually mean the component itself and not the runQuery function.
@@ -24702,9 +24704,9 @@
 
 		/*This code handles the sending of the search terms to the parent Search component*/
 		handleSubmit: function handleSubmit() {
-			console.log("in Query, search term=", this.state.search);
-			console.log("in Query, search start=", this.state.start);
-			console.log("in Query, search end=", this.state.end);
+			// console.log("in Query, search term=",this.state.search);
+			// console.log("in Query, search start=",this.state.start);
+			// console.log("in Query, search end=",this.state.end);
 			this.props.updateSearch(this.state.search, this.state.start, this.state.end);
 			return false;
 		},
@@ -24836,7 +24838,7 @@
 					'end_date': end
 				}
 			}).then(function (results) {
-				console.log("inside helpers", results.data.response);
+				// console.log("inside helpers",results.data.response);
 
 				return results.data.response;
 			});

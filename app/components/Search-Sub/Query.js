@@ -26,9 +26,9 @@ var Query = React.createClass({
 
 	/*This code handles the sending of the search terms to the parent Search component*/
 	handleSubmit: function(){
-		console.log("in Query, search term=",this.state.search);
-		console.log("in Query, search start=",this.state.start);
-		console.log("in Query, search end=",this.state.end);
+		// console.log("in Query, search term=",this.state.search);
+		// console.log("in Query, search start=",this.state.start);
+		// console.log("in Query, search end=",this.state.end);
 		this.props.updateSearch(this.state.search, this.state.start, this.state.end);
 		return false;
 	},
