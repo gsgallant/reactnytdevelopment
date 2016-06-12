@@ -47,12 +47,13 @@ var Search = React.createClass({
 			// to actually mean the component itself and not the runQuery function.
 			}.bind(this))
 			
-			console.log("back from query and after .bind(this)=",this.state.results)
+
 	},
 
 	// This function will be passed down into children components so they can change the "parent"
 	// i.e we will pass this method to the query component that way it can change the main component 
 	// to perform a new search
+	//0101 and 1231 are concatenated to the years so that the search is the full years jan 1st - dec 31
 	setQuery: function(newQuery, newStart, newEnd){
 		// console.log("in setstate ");
 		this.setState({
