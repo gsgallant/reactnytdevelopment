@@ -24642,7 +24642,7 @@
 				// to actually mean the component itself and not the runQuery function.
 			}.bind(this));
 
-			console.log("back from query and after .bind(this)=", this.state.result);
+			console.log("back from query and after .bind(this)=", this.state.results);
 		},
 
 		// This function will be passed down into children components so they can change the "parent"
