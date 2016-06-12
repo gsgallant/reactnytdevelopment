@@ -24657,6 +24657,7 @@
 		},
 
 		/*Render the function. Note how we deploy both the Query and the Results*/render: function render() {
+			console.log("This is within render of Search.js just before calling the Results component results", this.state.results);
 
 			return React.createElement(
 				'div',
