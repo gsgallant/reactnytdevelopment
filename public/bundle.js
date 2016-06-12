@@ -24632,12 +24632,11 @@
 			// console.log("just before helpers.query start=",this.state.startYear);
 			// console.log("just before helpers.query end=",this.state.endYear);
 			helpers.runQuery(this.state.queryTerm, this.state.startYear, this.state.endYear).then(function (data) {
-
 				this.setState({
 					results: data
 				});
 				//in the console I see this data so this is the point where it stops being seen.
-				console.log("back from query but before .bind(this) data=", data);
+				console.log("back from query but before .bind(this) data=", this.state.results);
 
 				// This code is necessary to bind the keyword "this" when we say this.setState
 				// to actually mean the component itself and not the runQuery function.
