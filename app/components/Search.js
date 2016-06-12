@@ -41,11 +41,13 @@ var Search = React.createClass({
 					results: data
 				})
 
-				// console.log("back from query",data);
+				console.log("back from query but before .bind(this) data=",data);
 
 			// This code is necessary to bind the keyword "this" when we say this.setState 
 			// to actually mean the component itself and not the runQuery function.
 			}.bind(this))
+			
+			console.log("back from query and after .bind(this)=",this.state.result)
 	},
 
 	// This function will be passed down into children components so they can change the "parent"
