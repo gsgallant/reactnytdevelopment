@@ -6,7 +6,7 @@ var Router = require('react-router');
 var Results = React.createClass({ 
 
 	render: function(){
-		console.log("inside Results.js checking the results object=",this.props.results.docs)
+		//console.log("inside Results.js checking the results object=",this.props.results.docs)
 		if (!this.props.results.docs){
 
 			return(

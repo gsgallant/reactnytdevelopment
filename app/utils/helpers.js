@@ -23,7 +23,8 @@ var helpers = {
 			    'api-key': APIKey,
 			    'q': term,
 			    'begin_date': start,
-			    'end_date': end			
+			    'end_date': end,
+			    'page': 0			
 			}
 		})
 		.then(function(results){
