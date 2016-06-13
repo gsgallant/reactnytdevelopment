@@ -26,8 +26,8 @@ var Search = React.createClass({
 	/*This function gets called if the user searches for a completely new set of parameters (i.e. if any of the search terms changes)*/
 	/*If the user searches for the exact same thing, then React will ignore it.*/
 	shouldComponentUpdate: function(nextProps, nextState) {
-			
-		  return this.state.queryTerm != nextState.queryTerm;
+			return (this.state.queryTerm != nextState.queryTerm || this.state.results != nextState.results);
+		  //return this.state.queryTerm != nextState.queryTerm;
 	},
 
 	componentDidUpdate: function(){
@@ -41,13 +41,13 @@ var Search = React.createClass({
 					results: data
 				})
 				//in the console I see this data so this is the point where it stops being seen.
-				console.log("back from query but before .bind(this) data=",this.state.results);
+				//console.log("back from query but before .bind(this) data=",this.state.results);
 
 			// This code is necessary to bind the keyword "this" when we say this.setState 
 			// to actually mean the component itself and not the runQuery function.
 			}.bind(this))
 			//this is not seeing the data.  right after the .bind(this).
-			console.log("back from query and after .bind(this) this.state.results=",this.state.results);
+			//console.log("back from query and after .bind(this) this.state.results=",this.state.results);
 	},
 
 	// This function will be passed down into children components so they can change the "parent"
