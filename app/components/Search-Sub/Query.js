@@ -25,12 +25,12 @@ var Query = React.createClass({
     },
 
 	/*This code handles the sending of the search terms to the parent Search component*/
-	handleSubmit: function(){
+	handleClick: function(){
 		// console.log("in Query, search term=",this.state.search);
 		// console.log("in Query, search start=",this.state.start);
 		// console.log("in Query, search end=",this.state.end);
 		this.props.updateSearch(this.state.search, this.state.start, this.state.end);
-		return false;
+		// return false;
 	},
 
 	render: function(){
@@ -48,7 +48,7 @@ var Query = React.createClass({
 								<div className="panel-body">
 
 
-									<form onSubmit={this.handleSubmit}>
+									<form onClick={this.handleClick}>
 										<div className="form-group">
 											<h4 className=""><strong>Topic</strong></h4>
 											<input type="text" value={this.state.value} className="form-control " id="search" onChange= {this.handleChange} required/>
@@ -63,7 +63,7 @@ var Query = React.createClass({
 
 										
 										<div className="pull-right">
-											<button type="submit" className="btn btn-danger"><h4>Submit</h4></button>
+											<button className="btn btn-danger"><h4>Submit</h4></button>
 										</div>
 									</form>
 

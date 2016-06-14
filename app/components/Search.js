@@ -21,13 +21,17 @@ var Search = React.createClass({
 			endYear: "",
 			results: {}
 		}
+	
 	},
 
+	
 	/*This function gets called if the user searches for a completely new set of parameters (i.e. if any of the search terms changes)*/
 	/*If the user searches for the exact same thing, then React will ignore it.*/
 	shouldComponentUpdate: function(nextProps, nextState) {
+			// console.log('shouldcomponentupdate=',(this.state.queryTerm != nextState.queryTerm || this.state.results != nextState.results))
 			return (this.state.queryTerm != nextState.queryTerm || this.state.results != nextState.results);
 		  //return this.state.queryTerm != nextState.queryTerm;
+			// return true;
 	},
 
 	componentDidUpdate: function(){
@@ -37,23 +41,22 @@ var Search = React.createClass({
 		// console.log("just before helpers.query end=",this.state.endYear);
 		helpers.runQuery(this.state.queryTerm, this.state.startYear, this.state.endYear)
 			.then(function(data){
+				console.log("inside Search and back from helpers.runQuery");
 				this.setState({
 					results: data
 				})
-				//in the console I see this data so this is the point where it stops being seen.
-				//console.log("back from query but before .bind(this) data=",this.state.results);
+				console.log("back from query but before .bind(this) data=",this.state.results);
 
 			// This code is necessary to bind the keyword "this" when we say this.setState 
 			// to actually mean the component itself and not the runQuery function.
 			}.bind(this))
-			//this is not seeing the data.  right after the .bind(this).
 			//console.log("back from query and after .bind(this) this.state.results=",this.state.results);
 	},
 
 	// This function will be passed down into children components so they can change the "parent"
 	// i.e we will pass this method to the query component that way it can change the main component 
 	// to perform a new search
-	//0101 and 1231 are concatenated to the years so that the search is the full years jan 1st - dec 31
+	// 0101 and 1231 are concatenated to the years so that the search is the full years jan 1st - dec 31
 	setQuery: function(newQuery, newStart, newEnd){
 		// console.log("in setstate ");
 		this.setState({

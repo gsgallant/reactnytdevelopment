@@ -9,13 +9,17 @@ var helpers = {
 
 	// This will run our query.
 	runQuery: function(term, start, end){
-
+		// console.log("inside helpers.js in runQuery= "+term+" "+start+" "+end);
 		// Adjust to get search terms in proper format
 		var term = term.trim();
 		var start = start.trim();
 		var end = end.trim();
-
-
+		
+//**************************** BUG LOCATED ************************************
+		console.log("inside helpers.js in runQuery just before axios.get= "+term+" "+start+" "+end);
+//*******BUG IS HERE- on the first Query attempt, the axios.get never occurs but all
+//subsequent calls to Axios.get succeed and bring back data.
+		
 		// Run a query using Axios. Then return the results as an object with an array.
 		// See the Axios documentation for details on how we structured this with the params.
 		return axios.get('https://api.nytimes.com/svc/search/v2/articlesearch.json', {
@@ -28,7 +32,7 @@ var helpers = {
 			}
 		})
 		.then(function(results){
-			// console.log("inside helpers",results.data.response);
+			console.log("inside helpers after axios.get",results.data.response);
 
 			return results.data.response;
 

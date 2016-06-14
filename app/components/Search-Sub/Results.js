@@ -6,7 +6,7 @@ var Router = require('react-router');
 var Results = React.createClass({ 
 
 	render: function(){
-		//console.log("inside Results.js checking the results object=",this.props.results.docs)
+		console.log("inside Results.js checking the results object=",this.props.results.docs)
 		if (!this.props.results.docs){
 
 			return(
@@ -18,7 +18,6 @@ var Results = React.createClass({
 					</h3>
 					
 			  	</li>
-
 			)
 
 		}
@@ -29,13 +28,13 @@ var Results = React.createClass({
 				return(
 
 						<div>
-						  <li className="list-group-item" key={index}>
+						  <li className="list-group-item" key={index} >
 						
 							<h3>
 							  	<span><em>{article.headline.main}</em></span>
 								<span className="btn-group pull-right" >
 									<a target="_blank"  href={article.web_url}><button className="btn btn-default btn-sm ">View Article</button></a>
-									<button className="btn btn-primary btn-sm">Save</button>
+									{/*<button className="btn btn-primary btn-sm">Save</button>*/}
 								</span> 
 							</h3>
 							<p>Date Published: {article.pub_date}</p>

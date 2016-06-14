@@ -28,8 +28,8 @@ var Main = React.createClass({
 					
 							<div className="collapse navbar-collapse navbar-ex1-collapse">
 								<ul className="nav navbar-nav navbar-right">
-									<li><a href="#/search">Search</a></li>
-									<li><a href="#/saved">Saved Articles</a></li>
+									{/*<li><a href="#/search">Search</a></li>*/}
+									{/*<li><a href="#/saved">Saved Articles</a></li>*/}
 								</ul>
 							</div>
 						</div>
@@ -38,7 +38,7 @@ var Main = React.createClass({
 					{/*Jumbotron*/}
 					<div className="jumbotron">
 						<h2 className="text-center"><strong>(ReactJS) New York Times Article Scrubber</strong></h2>
-						<h3 className="text-center">Search for and save articles of interest.</h3>
+						<h3 className="text-center">Search for and view articles of interest.</h3>
 					</div>
 
 
