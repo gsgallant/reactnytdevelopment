@@ -27,8 +27,8 @@ var Results = React.createClass({
 
 				return(
 
-						<div>
-						  <li className="list-group-item" key={index} >
+						<div key={index}>
+						  <li className="list-group-item">
 						
 							<h3>
 							  	<span><em>{article.headline.main}</em></span>

@@ -9,7 +9,7 @@ var Query = React.createClass({
 		return {
 			search: "",
 			start: "",
-			end: "",
+			end: ""
 		}
 	},
 	
@@ -22,6 +22,8 @@ var Query = React.createClass({
     	var newState = {};
     	newState[event.target.id] = event.target.value;
     	this.setState(newState);
+
+
     },
 
 	/*This code handles the sending of the search terms to the parent Search component*/
@@ -30,7 +32,9 @@ var Query = React.createClass({
 		// console.log("in Query, search start=",this.state.start);
 		// console.log("in Query, search end=",this.state.end);
 		this.props.updateSearch(this.state.search, this.state.start, this.state.end);
-		// return false;
+
+        // added prevent default to avoid refresh
+        event.preventDefault();
 	},
 
 	render: function(){
@@ -47,8 +51,8 @@ var Query = React.createClass({
 								</div>
 								<div className="panel-body">
 
-
-									<form onClick={this.handleClick}>
+									{/* **** ROB    changed the below onCLick= to onSubmit= */}
+									<form onSubmit={this.handleClick}>
 										<div className="form-group">
 											<h4 className=""><strong>Topic</strong></h4>
 											<input type="text" value={this.state.value} className="form-control " id="search" onChange= {this.handleChange} required/>
